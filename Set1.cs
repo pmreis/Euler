@@ -214,7 +214,7 @@ namespace ProjectEuler
     }
 
     /// <summary>
-    ///   Euler project, problem 9.
+    ///   Euler project, problem 10.
     ///   Find the sum of all the primes below two million.
     /// </summary>
     public static long Prob10(int limit = 2000000)
