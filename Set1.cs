@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
@@ -140,7 +142,7 @@ namespace ProjectEuler
       long num = 2;
 
       while (count < order) {
-        if (IsPrime(num)) count++;
+        if (Utils.IsPrime(num)) count++;
         num++;
       }
       return num - 1;
@@ -208,30 +210,29 @@ namespace ProjectEuler
           if (a*a + b*b == c*c && a + b + c == find) return a*b*c;
         }
       }
-      return 0;
+      return -1;
     }
 
     /// <summary>
-    ///   Aux method that returs if a number is prime or not.
+    ///   Euler project, problem 9.
+    ///   Find the sum of all the primes below two million.
     /// </summary>
-    /// <param name="number"></param>
-    /// <returns></returns>
-    private static bool IsPrime(long number)
+    public static long Prob10(int limit = 2000000)
     {
-      long divisor = 2;
-      long largestPrime = 2;
-      long auxVal = number;
+      long sum = 2;
 
-      while (auxVal > 1) {
-        if (auxVal%divisor == 0) {
-          auxVal = auxVal/divisor;
-          if (divisor > largestPrime) largestPrime = divisor;
-          divisor = 2;
+      Parallel.For(3, limit, i =>
+      {
+        if (i%2 != 0) {
+          if (Utils.IsPrime(i)) {
+            Interlocked.Add(ref sum, i);
+          }
         }
-        else divisor++;
-      }
+      });
 
-      return (largestPrime == number);
+      return sum;
     }
+
+
   }
 }

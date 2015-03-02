@@ -58,7 +58,12 @@ namespace ProjectEuler
       Console.WriteLine();
       Console.WriteLine("Special Pythagorean triplet");
       Console.WriteLine("for sum(a,b,c)=12, a*b*c = {0}", Set1.Prob9(12));
-      Console.WriteLine("for sum(a,b,c)=1000, a*b*c = {0}", Set1.Prob9(1000));
+      Console.WriteLine("for sum(a,b,c)=1000, a*b*c = {0}", Set1.Prob9());
+
+      Console.WriteLine();
+      Console.WriteLine("Summation of primes");
+      Console.WriteLine("Sum of primes up to 20 = {0}", Set1.Prob10(20));
+      Console.WriteLine("Sum of primes up to 2M = {0}", Set1.Prob10());
     }
   }
 }
