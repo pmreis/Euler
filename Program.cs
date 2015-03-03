@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace ProjectEuler
 {
@@ -9,7 +6,7 @@ namespace ProjectEuler
   {
     private static void Main(string[] args)
     {
-      RunSet1();
+      RunSet2();
     }
 
     private static void RunSet1()
@@ -64,6 +61,48 @@ namespace ProjectEuler
       Console.WriteLine("Summation of primes");
       Console.WriteLine("Sum of primes up to 20 = {0}", Set1.Prob10(20));
       Console.WriteLine("Sum of primes up to 2M = {0}", Set1.Prob10());
+    }
+
+    private static void RunSet2()
+    {
+      Console.WriteLine("Largest product in a grid");
+      Console.WriteLine("result = {0}", Set2.Prob11());
+
+      Console.WriteLine();
+      Console.WriteLine("Triangular number with over 500 divisors");
+      Console.WriteLine(Set2.Prob12());
+
+      Console.WriteLine();
+      Console.WriteLine("First 10 digits of large sum");
+      Console.WriteLine(Set2.Prob13());
+
+      Console.WriteLine();
+      Console.WriteLine("Longest Collatz sequence for n < 1M");
+      Console.WriteLine(Set2.Prob14());
+
+      Console.WriteLine();
+      Console.WriteLine("Lattice paths on a square matrix of size 20");
+      Console.WriteLine(Set2.Prob15());
+
+      Console.WriteLine();
+      Console.WriteLine("Digit sum of the 1000th power of 2");
+      Console.WriteLine(Set2.Prob16());
+
+      Console.WriteLine();
+      Console.WriteLine("Count the letters in the first 1000 numbers");
+      Console.WriteLine(Set2.Prob17());
+
+      Console.WriteLine();
+      Console.WriteLine("Path of triangle with the greatest sum");
+      Console.WriteLine(Set2.Prob18());
+
+      Console.WriteLine();
+      Console.WriteLine("Count the sundays on the first of any month of the 21th century");
+      Console.WriteLine(Set2.Prob19());
+
+      Console.WriteLine();
+      Console.WriteLine("Sum the digits of 100!");
+      Console.WriteLine(Set2.Prob20());
     }
   }
 }

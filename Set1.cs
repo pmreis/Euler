@@ -100,6 +100,7 @@ namespace ProjectEuler
     {
       for (int i = 21; i < int.MaxValue; i++) {
         bool divisible = true;
+
         for (int j = 2; j < upTo; j++) {
           if (i%j != 0) {
             divisible = false;
@@ -221,18 +222,12 @@ namespace ProjectEuler
     {
       long sum = 2;
 
-      Parallel.For(3, limit, i =>
-      {
-        if (i%2 != 0) {
-          if (Utils.IsPrime(i)) {
-            Interlocked.Add(ref sum, i);
-          }
-        }
+      Parallel.For(3, limit, i => {
+        if (i%2 != 0)
+          if (Utils.IsPrime(i)) Interlocked.Add(ref sum, i);
       });
 
       return sum;
     }
-
-
   }
 }
