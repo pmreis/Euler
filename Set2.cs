@@ -373,7 +373,6 @@ namespace ProjectEuler
         for (int j = 0; j < lineNums.Length; j++) triangle[i, j] = lineNums[j];
       }
 
-      int max = 0;
       int linCount = triangle.GetLength(0);
       for (int i = linCount - 2; i >= 0; i--) {
         for (int j = 0; j <= i; j++)

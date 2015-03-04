@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 namespace ProjectEuler
 {
-  public class Node
-  {
-    public Node Left { get; set; }
-    public Node Right { get; set; }
-    public int Value { get; set; }
-  }
-
-
   public static class Utils
   {
     /// <summary>
-    ///   Aux method that returs if a number is prime or not.
+    ///   Aux method that returs if a num is prime or not.
     /// </summary>
     /// <param name="number"></param>
     /// <returns></returns>
@@ -37,30 +29,86 @@ namespace ProjectEuler
     public static BigInteger Factorial(int n)
     {
       BigInteger result = 1;
-      for (long i = 2; i <= n; i++) {
-        result *= i;
-      }
+      for (long i = 2; i <= n; i++) result *= i;
       return result;
+    }
+
+    /// <summary>
+    ///   The length of the repetend (period of the repeating decimal) of 1/p is
+    ///   equal to the order of 10 modulo p.
+    ///   Source Wikipedia: http://en.wikipedia.org/wiki/Repeating_decimal
+    /// </summary>
+    /// <param name="d"></param>
+    /// <returns></returns>
+    public static int RecurringCycle(int d)
+    {
+      for (int i = 1; i <= d; i++) {
+        BigInteger res = BigInteger.ModPow(10, i, d);
+        if (1 == res) return i;
+      }
+      return 0;
     }
 
     public static BigInteger SumDigits(BigInteger number)
     {
       BigInteger sum = 0;
-      while (number > 1)
-      {
-        BigInteger digit = number % 10;
+      while (number >= 1) {
+        BigInteger digit = number%10;
         sum = sum + digit;
         number /= 10;
-        if (number == 1) sum++;
       }
       return sum;
     }
 
-    public static long MaxSumOfSubTree(Node n)
+    public static int SumDivisors(int num)
     {
-      if (n == null) return 0;
-      return n.Value + Math.Max(MaxSumOfSubTree(n.Left), MaxSumOfSubTree(n.Right));
+      HashSet<int> divs = new HashSet<int> {1};
+      int d = 2;
+      while ((d*d) <= num) {
+        if (num%d == 0) {
+          int q = num/d;
+          divs.Add(d);
+          divs.Add(q);
+        }
+        d++;
+      }
+      return divs.Sum();
     }
 
+    public static bool IsAbundant(int num)
+    {
+      return SumDivisors(num) > num;
+    }
+
+    public static int CharSum(this string s)
+    {
+      int sum = 0;
+      string upper = s.ToUpperInvariant();
+      foreach (char c in upper) sum += c - 64;
+      return sum;
+    }
+
+    public static IEnumerable<string> StringPermutations(string prefix, string str)
+    {
+      int n = str.Length;
+      if (n == 0) yield return prefix;
+      else {
+        for (int i = 0; i < n; i++) {
+          foreach (var stringPermutation in 
+            StringPermutations(prefix + str[i],
+              str.Substring(0, i) + str.Substring(i + 1)))
+            yield return stringPermutation;
+        }
+      }
+    }
+
+    public static IEnumerable<BigInteger> IntegerDigits(BigInteger number)
+    {
+      while (number >= 1) {
+        BigInteger digit = number%10;
+        number /= 10;
+        yield return digit;
+      }
+    }
   }
 }

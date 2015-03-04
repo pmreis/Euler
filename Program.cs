@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace ProjectEuler
 {
@@ -6,7 +7,9 @@ namespace ProjectEuler
   {
     private static void Main(string[] args)
     {
+      RunSet1();
       RunSet2();
+      RunSet3();
     }
 
     private static void RunSet1()
@@ -103,6 +106,52 @@ namespace ProjectEuler
       Console.WriteLine();
       Console.WriteLine("Sum the digits of 100!");
       Console.WriteLine(Set2.Prob20());
+    }
+
+    private static void RunSet3()
+    {
+      Console.WriteLine("Sum of all amicable numbers up to 10000");
+      Console.WriteLine("result = {0}", Set3.Prob21());
+
+      Console.WriteLine();
+      Console.WriteLine("Names scores");
+      Console.WriteLine("result = {0}", Set3.Prob22());
+
+      Console.WriteLine();
+      Console.WriteLine("Non-abundant sums");
+      Console.WriteLine("result = {0}", Set3.Prob23());
+
+      Console.WriteLine();
+      Console.WriteLine("The 1M-th lexicographic permutation of 0123456789");
+      Console.WriteLine("is {0}", Set3.Prob24());
+
+      Console.WriteLine();
+      Console.WriteLine("The 1000-digit Fibonacci number");
+      Console.WriteLine("is the term {0}", Set3.Prob25());
+
+      Console.WriteLine();
+      Console.WriteLine("The 1000-digit Fibonacci number");
+      Console.WriteLine("is the term {0}", Set3.Prob25());
+
+      Console.WriteLine();
+      Console.WriteLine("The d where 1/d has the longest recurring cycle");
+      Console.WriteLine("is {0}", Set3.Prob26());
+
+      Console.WriteLine();
+      Console.WriteLine("The product of coefficients of n^2+an+b");
+      Console.WriteLine("is {0}", Set3.Prob27());
+
+      Console.WriteLine();
+      Console.WriteLine("Sum of diagonals on spiral matrix of 1001x1001");
+      Console.WriteLine("is {0}", Set3.Prob28());
+
+      Console.WriteLine();
+      Console.WriteLine("How many distinct combinations of a^b");
+      Console.WriteLine("= {0}", Set3.Prob29());
+
+      Console.WriteLine();
+      Console.WriteLine("Sum of fifth powers of digits");
+      Console.WriteLine("is {0}", Set3.Prob30());
     }
   }
 }
