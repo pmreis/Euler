@@ -23,16 +23,12 @@ namespace ProjectEuler
 
       Console.WriteLine();
       Console.WriteLine("Largest prime factor");
-      Console.WriteLine("of 13195 = {0}",
-        Set1.Prob3(13195));
-
-      Console.WriteLine("of 600851475143 = {0}",
-        Set1.Prob3());
+      Console.WriteLine("of 13195 = {0}", Set1.Prob3(13195));
+      Console.WriteLine("of 600851475143 = {0}", Set1.Prob3());
 
       Console.WriteLine();
       Console.WriteLine("Largest palindrome product");
-      Console.WriteLine("of two 3-digit numbers = {0}",
-        Set1.Prob4(3));
+      Console.WriteLine("of two 3-digit numbers = {0}", Set1.Prob4(3));
 
       Console.WriteLine();
       Console.WriteLine("Smallest multiple");
@@ -130,10 +126,6 @@ namespace ProjectEuler
       Console.WriteLine("is the term {0}", Set3.Prob25());
 
       Console.WriteLine();
-      Console.WriteLine("The 1000-digit Fibonacci number");
-      Console.WriteLine("is the term {0}", Set3.Prob25());
-
-      Console.WriteLine();
       Console.WriteLine("The d where 1/d has the longest recurring cycle");
       Console.WriteLine("is {0}", Set3.Prob26());
 
@@ -147,7 +139,7 @@ namespace ProjectEuler
 
       Console.WriteLine();
       Console.WriteLine("How many distinct combinations of a^b");
-      Console.WriteLine("= {0}", Set3.Prob29());
+      Console.WriteLine("is {0}", Set3.Prob29());
 
       Console.WriteLine();
       Console.WriteLine("Sum of fifth powers of digits");
